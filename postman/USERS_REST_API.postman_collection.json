@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "3f7a8922-9c56-4257-ae99-f288d2cf6f7f",
+		"name": "USERS_REST_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25940033"
+	},
+	"item": [
+		{
+			"name": "CREATE_USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Firstname\": \"Yuriy\",\n\"Lastname\": \"Fomin\",\n\"Email\": \"fdsakl\",\n\"Age\": 27,\n\"Created\": \"2024-12-08T16:36:40Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_USER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users?user_id=dd08d735-5e67-4871-8f71-f6a37d17c0e0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "dd08d735-5e67-4871-8f71-f6a37d17c0e0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ALL_USERS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/usersAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usersAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UDPATE_USER",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ID\": \"f0d23518-0427-447b-b44\",\n    \"Firstname\": \"Firstname\",\n    \"Lastname\": \"Lastname\",\n    \"Email\": \"Email\",\n    \"Age\": 15,\n    \"Created\": \"0001-01-01T00:00:00Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/f0d23518-0427-447b-b449-a31fb43c5c34",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"f0d23518-0427-447b-b449-a31fb43c5c34"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_USER",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/7e0998fd-77d0-4180-9872-31070e37ca99",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"7e0998fd-77d0-4180-9872-31070e37ca99"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

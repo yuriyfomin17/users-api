@@ -1,0 +1,34 @@
+services:
+  postgres:
+    networks:
+      - user-rest-api
+    restart: always
+    container_name: users-postgres
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=users
+    volumes:
+      - ./internal/pg/data:/var/lib/postgresql/data
+  app:
+    networks:
+      - user-rest-api
+    depends_on:
+      postgres:
+        condition: service_started
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      HTTP_ADDR: ":8080"
+      DSN: "postgres://postgres:password@postgres/users?sslmode=disable"
+      MIGRATIONS_PATH: "file://migrations"
+    command: ["./wait-for-it.sh", "postgres:5432", "--timeout=60", "--", "./app"]
+
+networks:
+  user-rest-api:
