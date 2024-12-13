@@ -11,4 +11,5 @@ type UserService interface {
 	CreateUser(ctx *gin.Context, user dto.User) (dto.User, error)
 	UpdateUser(ctx *gin.Context, user dto.User) (dto.User, error)
 	DeleteUserById(ctx *gin.Context, userId string) error
+	DeleteUserB(ctx *gin.Context, userId string) error
 }
