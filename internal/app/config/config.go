@@ -1,6 +1,7 @@
 package config
 
 import (
+	"fmt"
 	"os"
 )
 
@@ -16,7 +17,7 @@ func ReadConfig() Config {
 	c.HTTPAddr = "localhost:8080"
 	c.PostgresAddress = "postgresql://postgres:password@localhost:5432/users?sslmode=disable"
 	c.MigrationsPath = "file://internal/app/migrations"
-
+	fmt.Println("reading config...")
 	httpAddr, exists := os.LookupEnv("HTTP_ADDR")
 	if exists {
 		c.HTTPAddr = httpAddr
